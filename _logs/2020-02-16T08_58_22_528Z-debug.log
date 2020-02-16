@@ -1,0 +1,30 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   'D:\\Software\\study\\nodejs\\node.exe',
+1 verbose cli   'D:\\Software\\study\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'prefix',
+1 verbose cli   '-g'
+1 verbose cli ]
+2 info using npm@6.13.4
+3 info using node@v12.16.0
+4 verbose exit [ 0, true ]
+5 verbose stack Error: EPIPE: broken pipe, write
+5 verbose stack     at Socket._write (internal/net.js:62:25)
+5 verbose stack     at doWrite (_stream_writable.js:441:12)
+5 verbose stack     at writeOrBuffer (_stream_writable.js:425:5)
+5 verbose stack     at Socket.Writable.write (_stream_writable.js:316:11)
+5 verbose stack     at reallyExit (D:\Software\study\nodejs\node_modules\npm\lib\utils\error-handler.js:137:20)
+5 verbose stack     at exit (D:\Software\study\nodejs\node_modules\npm\lib\utils\error-handler.js:124:5)
+5 verbose stack     at EventEmitter.errorHandler (D:\Software\study\nodejs\node_modules\npm\lib\utils\error-handler.js:156:19)
+5 verbose stack     at EventEmitter.<anonymous> (D:\Software\study\nodejs\node_modules\npm\bin\npm-cli.js:150:20)
+5 verbose stack     at processTicksAndRejections (internal/process/task_queues.js:79:11)
+6 verbose cwd H:\python35\MyRecord\MyRecord
+7 verbose Windows_NT 6.1.7601
+8 verbose argv "D:\\Software\\study\\nodejs\\node.exe" "D:\\Software\\study\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "prefix" "-g"
+9 verbose node v12.16.0
+10 verbose npm  v6.13.4
+11 error code EPIPE
+12 error syscall write
+13 error errno EPIPE
+14 error EPIPE: broken pipe, write
+15 verbose exit [ 1, true ]
