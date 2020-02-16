@@ -26,7 +26,7 @@ $ npm -v
 
 一使用缓存目录就生成了)，试图将目录移动到nodejs的安装目录
 
-![npm仓库](../../normal/docsify start/npm仓库.png)
+![img](../../IMG/normal/docsify start/npm_reposity.png)
 
 先在nodejs的安装目录新建目录
 
@@ -47,7 +47,7 @@ npm config set cache "D:\Software\study\nodejs\node_cache"
 
 npm config set registry=http://registry.npm.taobao.org
 
-![镜像仓库](../../IMG/normal/docsify start/镜像仓库.png)
+![img](../../IMG/normal/docsify start/mirror_repositry.png)
 
 npm config get registry 可查看镜像仓库地址
 
