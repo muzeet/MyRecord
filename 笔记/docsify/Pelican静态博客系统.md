@@ -1,0 +1,34 @@
+## 搭建Pelican博客系统
+
+### 1.介绍
+
+Pelican是一套开源的使用Python编写的博客静态生成, 可以添加文章和和创建页面, 可以使用MarkDown reStructuredText 和 AsiiDoc 的格式来抒写, 同时使用 Disqus评论系统, 支持 RSS和Atom输出, 插件, 主题, 代码高亮等功能, 采用Jajin2模板引擎, 可以很容易的更改模板。
+
+### 2.安装前准备
+
+- Mingw：生成静态页面时需要使用到Make， Windows环境需要安装Mingw创建包含GCC和Make的环境
+- Python3：Pelican是Python平台的静态页面生成器，需要安装Python3
+- Pelican：
+- Markdown：Pelican支持Markdown
+
+### 3.安装
+
+#### Mingw安装
+
+#### Python3安装
+
+#### 配置Virtualenv
+
+#### Pelican安装
+
+#### Markdown安装
+
+### 4. 开始创建博客系统Step by step
+
+#### quickstart
+
+#### 写一篇文章
+
+#### 生成静态页面
+
+#### 本地预览
