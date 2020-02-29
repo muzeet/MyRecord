@@ -2,21 +2,23 @@
 
 ## Docsify轻量级静态
 
-### Docsify简介
+### 1.Docsify简介
 
 Docsify 是一个动态生成文档网站的工具。不同于 GitBook、Hexo、Pelican 的地方是它不会生成将 .md 转成 .html 文件，所有转换工作都是在运行时进行。这将非常实用，如果只是需要快速的搭建一个小型的文档网站，或者不想因为生成的一堆 .html 文件“污染” commit 记录，只需要创建一个 index.html 就可以开始写文档而且直接部署在 GitHub Pages。
 
-### 安装Nodejs
+### 2.安装Nodejs
 
-1.nodejs下载地址：https://nodejs.org/en/ 
+#### Nodejs下载
 
-2.安装nodejs
+下载地址：https://nodejs.org/en/ 
 
-   安装nodejs请参考链接：https://www.cnblogs.com/jianguo221/p/11487532.html
+#### 安装Nodejs
 
-   选中Add to PATH
+安装nodejs请参考链接：https://www.cnblogs.com/jianguo221/p/11487532.html
 
-3.安装完后执行
+记得选中Add to PATH
+
+安装完后执行
 
 ```
 node -v
@@ -28,7 +30,7 @@ $ npm -v
 6.13.7
 ```
 
-4.修改npm本地仓库地址
+#### 修改npm本地仓库地址
 
 安装后发现，npm的本地仓库在系统盘C盘的用户目录(没见到npm-cache是因为没有用过，
 
@@ -51,7 +53,7 @@ npm config set cache "D:\Software\study\nodejs\node_cache"
 
 执行npm list -global可以看到npm的本地仓库已经发生改变
 
-5.配置镜像站
+#### 配置nmp像站
 
 npm config set registry=http://registry.npm.taobao.org
 
@@ -65,7 +67,7 @@ npm info vue
 
 npm install npm -g 将安装最新npm, -g安装到global目录
 
-### 安装Docsify
+### 3.安装Docsify
 
 安装docsify
 
@@ -83,9 +85,9 @@ npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
 updated 2 packages in 19.916s
 ```
 
-### Quick-start
+### 4.Quick-start
 
-1.init初始化一个项目
+#### init初始化一个项目
 
 本地创建目录test， 在该目录下docsify init
 
@@ -114,7 +116,7 @@ README.md 会做为主页内容渲染
 .nojekyll 用于阻止 GitHub Pages 会忽略掉下划线开头的文件
 ```
 
-2.开始写文档
+#### 开始写文档
 
 修改index.html中关于关于网页设置的JS脚本window.$docsify
 
@@ -192,7 +194,7 @@ main.md设置
 
 ![](../../IMG/normal/docsify_start/cascade_folder.png)
 
-3.本地预览效果
+#### 本地预览效果
 
 通过执行命令`docsify serve` 会运行一个本地的服务器来预览加载本地的文档，提供LiveReload 功能，可以实时预览。默认地址访问 `http://localhost:3000`
 
