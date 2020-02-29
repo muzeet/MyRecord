@@ -34,7 +34,7 @@ $ npm -v
 
 一使用缓存目录就生成了)，试图将目录移动到nodejs的安装目录
 
-![img](../../IMG/normal/docsify start/npm_reposity.png)
+![img](../../IMG/normal/docsify_start/npm_reposity.png)
 
 先在nodejs的安装目录新建目录
 
@@ -55,7 +55,7 @@ npm config set cache "D:\Software\study\nodejs\node_cache"
 
 npm config set registry=http://registry.npm.taobao.org
 
-![img](../../IMG/normal/docsify start/mirror_repositry.png)
+![img](../../IMG/normal/docsify_start/mirror_repositry.png)
 
 npm config get registry 可查看镜像仓库地址
 
@@ -190,7 +190,7 @@ main.md设置
 
 我的目录结构， Windows下使用 `tree /F` 命令可以显示目录树
 
-![](../../IMG/normal/docsify start/cascade_folder.png)
+![](../../IMG/normal/docsify_start/cascade_folder.png)
 
 3.本地预览效果
 
@@ -212,7 +212,7 @@ Listening at http://localhost:3000
 
 我的主页显示样式
 
-![](../../IMG/normal/docsify start/main_pages.png)
+![](../../IMG/normal/docsify_start/main_pages.png)
 
 
 
