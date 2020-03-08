@@ -65,9 +65,218 @@ This program built for i386-pc-mingw32
 
 #### 配置Virtualenv
 
+##### virtualenv 安装虚拟环境
+
+所有的第三方的包都会被pip安装到Python3的`site-packages`目录下，如果同时开发了多个应用程序，将共用一个python，为避免不同应用程序需要不同的第三方包版本，可以让每个应用各自拥有有一套独立的Python运行环境。virtualenv可以实现为每个应用创建隔离的Python运行环境。
+
+首先，用`pip`安装virtualenv:
+
+`pip install virtualenv`
+
+如何创建一个独属于某个应用的Python运行环境？接下来这么操作：
+
+第一步：在Python安装目录下创建某应用独立的Python运行环境目录，命名为`pelican-env`:
+
+第二步：创建一个独立的Python运行环境，`virtualenv pelican-env`
+
+创建指定版本虚拟环境`virtualenv -p python目录 虚拟环境`
+
+```
+$ virtualenv pelican-env
+created virtual environment CPython3.6.8.final.0-64 in 3649ms
+  creator CPython3Windows(dest=D:\Work\Python 3.6.8\pelican-env, clear=False, global=False)
+  seeder FromAppData(download=False, pip=latest, setuptools=latest, wheel=latest, via=copy, app_data_dir=C:\Users\zora\AppData\Local\Temp\tmp9n59muil\seed-app-data\v1)
+  activators BashActivator,BatchActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
+
+```
+
+命令`virtualenv`就可以创建一个独立的Python运行环境
+
+```
+zora@zora-PC MINGW64 /d/Work/Python 3.6.8/pelican-env
+$ ll
+total 13
+drwxr-xr-x 1 zora 197121   0 三月    7 09:42 Lib/
+-rw-r--r-- 1 zora 197121 272 三月    7 09:42 pyvenv.cfg
+drwxr-xr-x 1 zora 197121   0 三月    7 09:42 Scripts/
+
+```
+
+第三步：进入该运行环境
+
+```
+执行source activate 或者activate.bat进入虚拟环境，出现(pelican-env)表示已进入虚拟环境
+
+zora@zora-PC MINGW64 /d/Work/Python 3.6.8/pelican-env
+$ cd Scripts/
+
+zora@zora-PC MINGW64 /d/Work/Python 3.6.8/pelican-env/Scripts
+$ source activate
+(pelican-env)
+zora@zora-PC MINGW64 /d/Work/Python 3.6.8/pelican-env/Scripts
+
+```
+
+第四步：查看该虚拟环境下，安装了哪些Python包
+
+```
+pip list
+zora@zora-PC MINGW64 /d/Work/Python 3.6.8/pelican-env/Scripts
+$ pip list
+Package    Version
+---------- -------
+pip        20.0.2
+setuptools 45.2.0
+wheel      0.34.2
+(pelican-env)
+```
+
+第五步：在该虚拟环境下，安装python包
+
+```
+pip install xxx
+
+zora@zora-PC MINGW64 /d/Work/Python 3.6.8/pelican-env/Scripts
+$ pip install django
+Collecting django
+  Downloading Django-3.0.4-py3-none-any.whl (7.5 MB)
+Collecting pytz
+  Using cached pytz-2019.3-py2.py3-none-any.whl (509 kB)
+Collecting asgiref~=3.2
+  Downloading asgiref-3.2.3-py2.py3-none-any.whl (18 kB)
+Collecting sqlparse>=0.2.2
+  Downloading sqlparse-0.3.1-py2.py3-none-any.whl (40 kB)
+Installing collected packages: pytz, asgiref, sqlparse, django
+Successfully installed asgiref-3.2.3 django-3.0.4 pytz-2019.3 sqlparse-0.3.1
+(pelican-env)
+zora@zora-PC MINGW64 /d/Work/Python 3.6.8/pelican-env/Scripts
+$ pip list
+Package    Version
+---------- -------
+asgiref    3.2.3
+Django     3.0.4
+pip        20.0.2
+pytz       2019.3
+setuptools 45.2.0
+sqlparse   0.3.1
+wheel      0.34.2
+(pelican-env)
+```
+
+第六步：退出虚拟环境
+
+```
+deactivate
+or
+deactivate.bat
+```
+
+##### 快捷进入虚拟环境方式
+
+通过以上方式即可创建一个虚拟环境，但是使用上面这种方式需要记住每一个虚拟环境的目录，可以设置快捷进入虚拟环境方式
+
+下载virtualenvwrapper-win 包
+
+`pip install virtualenvwrapper-win`
+
+在windows cmd查看workon是否可用
+
+```
+C:\Users\zora>workon
+
+Pass a name to activate one of the following virtualenvs:
+==============================================================================
+找不到文件
+```
+
+使用virtualenvwrapper创建虚拟环境
+
+默认的虚拟环境目录会放在C:\Users\zora\Envs\目录下
+
+```
+D:\Work\Python 3.6.8>mkvirtualenv env1
+ C:\Users\zora\Envs is not a directory, creating
+created virtual environment CPython3.6.8.final.0-64 in 3303ms
+  creator CPython3Windows(dest=C:\Users\zora\Envs\env1, clear=False, global=Fals
+e)
+  seeder FromAppData(download=False, pip=latest, setuptools=latest, wheel=latest
+, via=copy, app_data_dir=C:\Users\zora\AppData\Local\Temp\tmp6l8inid5\seed-app-d
+ata\v1)
+  activators BashActivator,BatchActivator,FishActivator,PowerShellActivator,Pyth
+onActivator,XonshActivator
+
+(env1) D:\Work\Python 3.6.8>
+```
+
+存放路径，配置`WORKON_HOME`
+
+![](H:\python35\MyRecord\MyRecord\IMG\normal\docsify_start\workon_home.png)
+
+虚拟环境目录变换会导致之前创建的虚拟环境不可用，可将之前创建的虚拟环境拷贝到新目录下。再次执行`workon`
+
+新建虚拟环境
+
+`mkvirtualenv xx`
+
+`mkvirtualenv --python="python目录/python.exe" xxx`
+
+```
+C:\Users\zora>mkvirtualenv env2
+created virtual environment CPython3.6.8.final.0-64 in 2986ms
+  creator CPython3Windows(dest=D:\Work\Python 3.6.8\env2, clear=False, global=Fa
+lse)
+  seeder FromAppData(download=False, pip=latest, setuptools=latest, wheel=latest
+, via=copy, app_data_dir=C:\Users\zora\AppData\Local\Temp\tmpkdzlvg1a\seed-app-d
+ata\v1)
+  activators BashActivator,BatchActivator,FishActivator,PowerShellActivator,Pyth
+onActivator,XonshActivator
+```
+
+可以看到，虚拟环境的默认目录已发生变化
+
+总结下快捷方式下这些基础命令
+
+```
+1.创建virtualenv虚拟环境
+ mkvirtualenv pelican-env
+2.查看虚拟环境下安装了那些包
+ pip list
+3.安装python包
+ pip install xxx
+4.查看当前共有多少虚拟环境
+ workon
+5.进入虚拟环境
+ workon 虚拟环境名
+6.退出虚拟环境
+ deactivate
+7.删除虚拟环境
+ 退出虚拟环境后执行
+ rmvirtualenv 虚拟环境名　
+```
+
 #### Pelican安装
 
+##### 安装pelican markdown
+
+`pip install markdown`
+
+```
+(pelican-env)
+zora@zora-PC MINGW64 /d/Work/Python 3.6.8/pelican-env/Scripts
+$ pip install pelican markdown
+Collecting pelican
+  Using cached pelican-4.2.0-py2.py3-none-any.whl (258 kB)
+Collecting markdown
+  Using cached Markdown-3.2.1-py2.py3-none-any.whl (88 kB)
+Collecting jinja2>=2.7
+Successfully built blinker
+Installing collected packages: MarkupSafe, jinja2, six, feedgenerator, unidecode, blinker, python-dateutil, docutils, pygments, pelican, markdown
+Successfully installed MarkupSafe-1.1.1 blinker-1.4 docutils-0.16 feedgenerator-1.9.1 jinja2-2.11.1 markdown-3.2.1 pelican-4.2.0 pygments-2.5.2 python-dateutil-2.8.1 six-1.14.0 unidecode-1.1.1
+```
+
 #### Markdown安装
+
+`pip install markdown`
 
 ### 4. 开始创建博客系统Step by step
 
@@ -77,4 +286,13 @@ This program built for i386-pc-mingw32
 
 #### 生成静态页面
 
+```
+make html
+```
+
 #### 本地预览
+
+```
+./develop_server.sh start
+```
+
