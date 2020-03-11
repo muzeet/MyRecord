@@ -326,6 +326,8 @@ make html
 make DEBUG=1 html
 
 pelican content -o output -s publishconf.py
+
+git branch --set-upstream-to=origin/gh-pages
 ```
 
 #### 本地预览
