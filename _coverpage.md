@@ -7,5 +7,5 @@
 *仅仅记录感想*
 
 [GitHub](https://github.com/muzeet/MyRecord)
-[Get Started](#笔记)
 [Blog](http://www.muzeet.cn/cn/)
+[Get Started](#笔记)
