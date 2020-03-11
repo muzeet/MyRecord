@@ -210,7 +210,7 @@ onActivator,XonshActivator
 
 存放路径，配置`WORKON_HOME`
 
-![](H:\python35\MyRecord\MyRecord\IMG\normal\docsify_start\workon_home.png)
+![](../../IMG/normal/docsify_start/workon_home.png)
 
 虚拟环境目录变换会导致之前创建的虚拟环境不可用，可将之前创建的虚拟环境拷贝到新目录下。再次执行`workon`
 
@@ -274,6 +274,40 @@ Installing collected packages: MarkupSafe, jinja2, six, feedgenerator, unidecode
 Successfully installed MarkupSafe-1.1.1 blinker-1.4 docutils-0.16 feedgenerator-1.9.1 jinja2-2.11.1 markdown-3.2.1 pelican-4.2.0 pygments-2.5.2 python-dateutil-2.8.1 six-1.14.0 unidecode-1.1.1
 ```
 
+```
+$ pelican --version
+4.2.0
+```
+
+##### Show versions
+
+```
+$ pip freeze
+appdirs==1.4.3
+blinker==1.4
+distlib==0.3.0
+docutils==0.16
+feedgenerator==1.9.1
+filelock==3.0.12
+importlib-metadata==1.5.0
+importlib-resources==1.3.1
+Jinja2==2.11.1
+Markdown==3.2.1
+MarkupSafe==1.1.1
+pelican==4.2.0
+Pygments==2.5.2
+python-dateutil==2.8.1
+pytz==2019.3
+six==1.14.0
+Unidecode==1.1.1
+virtualenv==20.0.8
+virtualenvwrapper-win==1.2.6
+zipp==3.1.0
+
+```
+
+
+
 #### Markdown安装
 
 `pip install markdown`
@@ -288,6 +322,10 @@ Successfully installed MarkupSafe-1.1.1 blinker-1.4 docutils-0.16 feedgenerator-
 
 ```
 make html
+
+make DEBUG=1 html
+
+pelican content -o output -s publishconf.py
 ```
 
 #### 本地预览
@@ -296,3 +334,26 @@ make html
 ./develop_server.sh start
 ```
 
+#### FAQ
+
+##### pelican4.x与jinja2不兼容
+
+```
+现象是
+File "H:\python35\OxCAFEBABE\themes\Responsive-Pelican\templates\baseArticle.html", line 37, in block "head"
+    <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+  File "d:\work\python 3.6.8\lib\site-packages\jinja2\filters.py", line 823, in do_format
+    return soft_unicode(value) % (kwargs or args)
+TypeError: not all arguments converted during string formatting
+make: *** [html] 错误 1
+
+
+To these (note the slug= additions to the format invocation):
+
+<link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(slug=category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+<link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(slug=category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories
+RSS Feed" />
+
+```
+
+参考：https://github.com/getpelican/pelican/issues/2442

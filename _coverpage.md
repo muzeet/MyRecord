@@ -8,3 +8,4 @@
 
 [GitHub](https://github.com/muzeet/MyRecord)
 [Get Started](#笔记)
+[Blog](http://www.muzeet.cn/cn/)
