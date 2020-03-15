@@ -12,6 +12,18 @@
 
 [xxx](笔记/tricks/)
 
+## 算法
+
+### Leetcode
+
+[Leetcode 01](Algorithm/Leetcode/)
+[Leetcode 02](Algorithm/Leetcode/)
+
+### 剑指Offer
+[剑指Offer 01](Algorithm/剑指Offer/)
+[剑指Offer 02](Algorithm/剑指Offer/)
+
 ## 技术归档
 
 [XX归档](技术归档/)
+
