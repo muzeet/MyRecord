@@ -359,3 +359,222 @@ RSS Feed" />
 ```
 
 参考：https://github.com/getpelican/pelican/issues/2442
+
+
+
+### 5.个人博客设计
+
+本博客系统是采用了Pelican Responsive-Pelican样式模板，下面简单介绍本博客的结构
+
+```
+
+archives.html
+article.html
+base.html
+baseArticle.html
+categories.html
+category.html
+everyCategory.html
+index.html
+page.html
+pagination.html
+tag.html
+tags.html
+translations.html
+```
+
+
+
+base.html
+
+```
+<div id="container"> // 整个页面的Body
+ <header></header> // Nav下拉选框
+ <section id="wrapper" class="clearfix"> // body除head后的所有内容
+   <section id="content" class="grid col-620" >
+      {% block content %} // 仅是作为stub，在其他页面继承block content，可嵌入进来其他样式，并保持页面结构一致
+      {% endblock %}
+   </section>
+   {% block widgets %} // 右侧导航栏
+   <section id="widgets" class="grid col-300 fit sidebar" >
+     {% block aboutMe %} // 关于本人模块
+       <section  id="widget-aboutme" class="widget-wrapper">
+       </section>
+     {% endblock %}
+     {% block categories %} // 分类目录模块
+       <section id="widget-category" class="widget-wrapper widget_archive">
+       </section>
+     {% endblock %}
+     {% block recentArticles %} // 最近文章模块
+       <section id="widget-category" class="widget-wrapper widget_recentArticle">
+       </section>
+     {% endblock %}
+     {% block recentComments %} // 最近评论模块
+       <section id="widget-category" class="widget-wrapper widget_recentComments">
+       </section>
+     {% endblock %}
+     {% block tagcloud %} // 友情链接模块
+       <section id="widget-links" class="widget-wrapper">
+       </section>
+     {% endblock %}
+     {% block links %} // 有用链接模块
+       <section id="widget-links" class="widget-wrapper">
+       </section>
+     {% endblock %}
+     {% block page_copyright %} // 版本协议模块
+       <section id="widget-copyright" class="widget-wrapper widget_archive">
+       </section>
+     {% endblock %}
+   </section>
+   {% endblock %}
+ </section>
+</div>
+```
+
+
+
+index.html
+
+```
+{% extends "base.html" %}
+{% block content  // 继承自base.html中的block content
+{{ super() }}
+<ul>
+{% for article in articles_page.object_list %}
+<li class="posts">
+<article class="post hentry">
+	<header>
+		<div class="post-info">
+		<span class="post-lable">发布于：</span>
+			<abbr class="date" title="{{ article.date.isoformat() }}"> 
+				<a href="{{ SITEURL }}/archives/{{article.date|strftime("%Y/index.html")}}">{{ article.locale_date }} </a>
+			</abbr>
+		<span class="post-lable">分类：</span>
+			<abbr class="category">
+				<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+			</abbr>
+			<!-- COMMENTS -->
+		</div>
+		<h2 class="title" >
+			<a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+		</h2>
+		
+	</header>
+	<div class="summary">{{ article.content|truncate(1000) }}</div>
+	<footer>
+		<div class="readmore">
+			<span class="more"><a href="{{ SITEURL }}/{{ article.url }}">继续阅读</a></span>
+		</div>
+	</footer>
+</article>
+</li>
+{% endfor %}
+<hr/>
+</ul>
+{% include 'pagination.html' %}
+{% endblock content%}
+```
+
+
+
+##### 代码高亮
+
+如下链接列举了大概15 款代码语法高亮工具，其中重点使用了`Google Code Prettify`、`Highlight.js`、`Pygments`
+
+https://www.jb51.net/article/77555.htm
+
+
+
+**Pygments**
+
+Pygments 是个通用代码语法高亮工具，许多常用的软件都使用了这款工具，比如论坛系统，wikis 或者其他需要美化代码的应用。 Pygments 支持范围非常广泛的编程语言，和大量的输出格式，包括 HTML, RTF, LaTeX 和 ANSI 序列。
+
+https://segmentfault.com/a/1190000000661337
+
+
+
+Pygments是唯一实验成功的代码高亮工具
+
+[![8xeBeP.md.png](https://s1.ax1x.com/2020/03/25/8xeBeP.md.png)](https://imgchr.com/i/8xeBeP)
+
+
+
+**安装Pygments**
+
+**生成所需要的CSS文件**
+
+
+
+
+
+##### 图床
+
+路过图床
+
+https://zhuanlan.zhihu.com/p/35270383
+
+
+
+##### 评论系统
+
+ISSO
+
+
+
+分享按钮
+
+https://blog.csdn.net/qq_40693828/article/details/81021071
+
+```
+<!-- bshare Button BEGIN -->
+<div id="bshare">
+  <div class="bshare-custom">
+    <a title="分享到" href="http://www.bShare.cn/" id="bshare-shareto" class="bshare-more">分享到</a>
+    <a title="分享到微信" class="bshare-weixin"></a>
+    <a title="分享到有道云笔记" class="bshare-youdaonote"></a>
+    <a title="分享到豆瓣" class="bshare-douban"></a>
+    <a title="分享到电子邮件" class="bshare-email"></a>
+    <a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+    <a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+    <span class="BSHARE_COUNT bshare-share-count">0</span>
+  </div>
+  <script type="text/javascript" charset="utf-8" src="{{ SITEURL }}/theme/js/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+  <script type="text/javascript" charset="utf-8" src="{{ SITEURL }}/theme/js/bshareC0.js"></script>
+</div>
+<!-- bshare Button BEGIN -->
+```
+
+
+
+版本协议
+
+```
+<div class="grid col-300 copyright" >
+					<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+						<img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"" alt="知识共享许可协议"></img>
+					</a>
+		</div>
+```
+
+
+
+自适应页面设计
+
+http://www.ruanyifeng.com/blog/2012/05/responsive_web_design.html
+
+```
+<!-- http://t.co/dKP3o1e -->
+<!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+<meta name="HandheldFriendly" content="true">
+<!-- 微软的老式浏览器 -->
+<meta name="MobileOptimized" content="320">
+<!-- CSS3 自适应页面-->
+<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+```
+
+
+
+1.手机横屏适配
+2.解决代码生成问题
+3.评论框
+4.手机模式下wgets加框线
