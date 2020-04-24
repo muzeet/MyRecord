@@ -10,6 +10,7 @@
 
 ```
 ./bin/elasticsearch
+./bin/elasticsearch -d // 以守护进程运行
 ```
 
 执行命令后发现有报错
