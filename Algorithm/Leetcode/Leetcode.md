@@ -70,6 +70,8 @@ Leetcode中的问题描述信息
 
 
 
+
+
 参考链接
 
 https://www.jianshu.com/p/541b8981b692
@@ -91,3 +93,9 @@ https://www.jianshu.com/p/92d543cda0cb
 样式：
 
 [https://github.com/MisterBooo/LeetCodeAnimation/blob/master/notes/LeetCode%E7%AC%AC101%E5%8F%B7%E9%97%AE%E9%A2%98%EF%BC%9A%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91.md](https://github.com/MisterBooo/LeetCodeAnimation/blob/master/notes/LeetCode第101号问题：对称二叉树.md)
+
+
+
+全排列与全组合及其相似拓展
+
+https://www.cnblogs.com/zengshangzhi/p/9305534.html
