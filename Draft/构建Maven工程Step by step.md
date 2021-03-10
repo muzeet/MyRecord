@@ -14,11 +14,11 @@
 
 1.添加M2_HOME，对应Maven bin解压目录
 
-![image-20210310170831233](D:\Work\MyRecord\IMG\normal\M2_HOME)
+![image-20210310170831233](D:\Work\MyRecord\IMG\normal\M2_HOME.png)
 
 2.增加PATH
 
-![image-20210310171039028](D:\Work\MyRecord\IMG\normal\MAVEN PATH ENV)
+![image-20210310171039028](D:\Work\MyRecord\IMG\normal\MAVEN PATH ENV.png)
 
 3.测试
 
@@ -104,15 +104,15 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 
 #### IDEA下配置Maven
 
-
+![image-20210310181927477](D:\Work\MyRecord\IMG\normal\Idea maven setting.png)
 
 #### IDEA创建Maven项目
 
-![image-20210310173759462](D:\Work\MyRecord\IMG\normal\idea maven proj start)
+![image-20210310173759462](D:\Work\MyRecord\IMG\normal\idea maven proj start.png)
 
 
 
-![image-20210310174342307](D:\Work\MyRecord\IMG\normal\Maven_quickstart)
+![image-20210310174342307](D:\Work\MyRecord\IMG\normal\Maven_quickstart.png)
 
 ```
 <groupId>muzeet.data</groupId>
