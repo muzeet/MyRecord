@@ -578,3 +578,32 @@ http://www.ruanyifeng.com/blog/2012/05/responsive_web_design.html
 2.解决代码生成问题
 3.评论框
 4.手机模式下wgets加框线
+
+
+
+
+
+font-awsome
+
+```
+日期、分类、tag
+<span class="post-lable"><i class="fa fa-calendar"></i></sapn>
+<span class="post-lable"><i class="fa fa-folder"></i></sapn>
+<span class="post-lable"><i class="fa fa-tag"></i></sapn>
+```
+
+
+
+custom template
+
+```
+Title: 书单
+Date: 2020-05-02
+Modified: 2020-05-02
+Category: Books
+Tags: 书单
+Authors: muzeet
+Template: photo
+```
+
+在page中新加`Template: photo`，在template目录新加`photo.html`
